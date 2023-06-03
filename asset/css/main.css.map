@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,CAAE;EACE,OAAO,EAAE,CAAC;EACV,MAAM,EAAE,CAAC;EACT,UAAU,EAAE,UAAU;;AAG1B,UAAW;EACP,WAAW,EAAE,oBAAoB;EACjC,gBAAgB,ECRV,KAAK",
+"sources": ["../sass/Base/_reset.scss","../sass/Helper/_variables.scss"],
+"names": [],
+"file": "main.css"
+}
