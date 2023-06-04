@@ -1,0 +1,16 @@
+footer {
+    padding-top: $p-50-cn;
+    ul {
+        list-style-type: none;
+        a {
+            @include textStyle();
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    .bot-footer  {
+        text-align: center;
+        padding: $p-15-cn;
+    }
+}

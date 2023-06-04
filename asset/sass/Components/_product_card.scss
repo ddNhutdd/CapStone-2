@@ -1,0 +1,30 @@
+.products__item {
+    margin-bottom: $m-10-cn;
+    background-color: $gray-1-cn;
+    .products__item__body {
+        padding: $p-15-cn;
+        .products__item__text__title {
+            @include textStyle($fs-16-cn, $fw-b-cn, $black-1-cn)
+    
+        }
+        .products__item__text__decription {
+            @include textStyle($fs-16-cn - 2, $fw-n-cn, $black-2-cn)
+        }
+    }
+    .products__item__footer {
+        div {
+            flex: 1 1;
+        }
+        .products__item__buy-now {
+            background-color: $green-2-cn;
+            padding: $p-5-cn;
+            cursor: pointer;
+        }
+        .products__item__price {
+            background-color: $gray-2-cn;
+            padding: $p-5-cn;
+            @include textStyle($fs-16-cn, $fw-b-cn, $black-1-cn);
+        }
+    }
+    
+}

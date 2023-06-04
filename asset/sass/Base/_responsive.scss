@@ -1,0 +1,57 @@
+.carouselShoesShop {
+    .carouselShoesShop__content {
+        h2 {
+            @include MediaQuery($sm) {
+                font-size: $fs-32-cn;
+            }
+        }
+
+        p {
+            @include MediaQuery($sm) {
+                font-size: $fs-24-cn;
+            }
+        }
+
+        @include MediaQuery($sm) {
+            position: absolute;
+            top: 50%;
+            right: 15%;
+            transform: translateY(-50%);
+        }
+    }
+
+    @include MediaQuery($sm) {
+        position: relative;
+    }
+}
+
+.products {
+    .products__list {
+        @include MediaQuery($sm) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: $p-10-cn;
+            .products__item {
+                margin-bottom: 0;
+            }
+        }
+
+        @include MediaQuery($lg) {
+            grid-template-columns: repeat(4, 1fr);
+            gap: $p-15-cn;
+        }
+
+        @include MediaQuery($xl) {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+}
+
+footer {
+    .footer-support {
+        @include MediaQuery($sm) {
+            border-left: 1px solid $gray-1-cn;
+            border-right: 1px solid $gray-1-cn;
+        }
+    }
+}

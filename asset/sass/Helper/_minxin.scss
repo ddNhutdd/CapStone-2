@@ -1,0 +1,43 @@
+@mixin textStyle ($fs: $fs-16-cn, $fw: $fw-n-cn, $color: $black-1-cn) {
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color
+}
+
+@mixin buttonStyle($pd, $fs, $color) {
+    padding: $pd;
+    font-size: $fs;
+    color: $color;
+}
+
+@mixin MediaQuery($type) {
+    @if $type ==$xs {
+        @media screen and (min-width:$xs) {
+            @content;
+        }
+    }
+
+    @if $type ==$sm {
+        @media screen and (min-width:$sm) {
+            @content;
+        }
+    }
+
+    @if $type ==$md {
+        @media screen and (min-width:$md) {
+            @content;
+        }
+    }
+
+    @if $type ==$lg {
+        @media screen and (min-width:$lg) {
+            @content;
+        }
+    }
+
+    @if $type ==$xl {
+        @media screen and (min-width:$xl) {
+            @content;
+        }
+    }
+}
