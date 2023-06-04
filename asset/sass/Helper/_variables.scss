@@ -8,6 +8,15 @@ $green-1-cn: green;
 $green-2-cn: rgba(0, 128, 0, 0.5);
 $gray-1-cn: rgba(194, 194, 194, 0.2);
 $gray-2-cn: rgba(194, 194, 194, 0.6);
+
+$body-bg: #c1bdba;
+$form-bg: #13232f;
+$white: #ffffff;
+$main: #1ab188;
+$main-light: lighten($main,5%);
+$main-dark: darken($main,5%);
+$gray-light: #a0b3b0;
+$gray: #ddd;
 /* font-weight
 -------------------------------------------------- */
 $fw-n-cn: 400;
@@ -37,3 +46,9 @@ $sm: 768px;
 $md: 992px;
 $lg: 1200px;
 $xl: 1400px;
+
+// Carts
+$thin: 300;
+$normal: 400;
+$bold: 600;
+$br: 4px;
