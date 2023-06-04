@@ -1,0 +1,26 @@
+header {
+    .header__botNav{
+        .header__user {
+            cursor: pointer;
+            @include textStyle($fs-16-cn + 4);
+            &:hover {
+                color: $green-1-cn;
+            }
+        }
+        .header__cart {
+            cursor: pointer;
+            .header__cart__icon {
+                @include textStyle($fs-32-cn - 2);
+                transform: translateY(2px);
+            }
+            .header__cart__badge {
+                z-index: 2;
+                top: 0;
+                right: -9px;
+            }
+            &:hover .header__cart__icon{
+                color: $green-1-cn;
+            }
+        }
+    }
+}

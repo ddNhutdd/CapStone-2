@@ -1,9 +1,19 @@
 //Vendor (import file scss, riêng file css gắn ở html)
 //Helper
 @import './Helper/_variables.scss';
+@import './Helper/minxin';
 //Base
 @import './Base/_reset.scss';
+
 //components
+@import './Components/_product_card';
 //layouts
+@import './Layouts/_header.scss';
+@import './Layouts/_carousel.scss';
+@import './Layouts/_products.scss';
+@import './Layouts/_footer.scss';
 //Pages
 //Theme
+
+//base responsive
+@import './Base/_responsive.scss';

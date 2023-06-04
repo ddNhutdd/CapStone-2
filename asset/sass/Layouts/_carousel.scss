@@ -1,0 +1,27 @@
+.carouselShoesShop {
+    background: url('../img/image 6.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    padding: $p-50-cn 0;
+    min-height: 300px;
+    object-fit: cover;
+
+    .carouselShoesShop__content {
+        h2 {
+            @include textStyle($fs-24-cn, $fw-b-cn, $black-1-cn);
+        }
+        p {
+            @include textStyle($fs-16-cn, $fw-b-cn, $black-1-cn);
+        }
+        @include MediaQuery($sm) {
+            position: absolute;
+            top: 50%;
+            right:15%;
+            transform: translateY(-50%);
+        }
+    }
+    @include MediaQuery($sm) {
+        position: relative;
+    }
+}

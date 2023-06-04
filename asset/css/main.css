@@ -1,3 +1,16 @@
+@charset "UTF-8";
+/* màu sắc
+-------------------------------------------------- */
+/* font-weight
+-------------------------------------------------- */
+/* font-size
+-------------------------------------------------- */
+/* margin
+-------------------------------------------------- */
+/* padding
+-------------------------------------------------- */
+/* responsive
+-------------------------------------------------- */
 * {
   padding: 0;
   margin: 0;
@@ -6,5 +19,137 @@
 body, html {
   font-family: 'Roboto', sans-serif;
   background-color: white; }
+
+.products__item {
+  margin-bottom: 10px;
+  background-color: rgba(194, 194, 194, 0.2); }
+  .products__item .products__item__body {
+    padding: 15px; }
+    .products__item .products__item__body .products__item__text__title {
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.9); }
+    .products__item .products__item__body .products__item__text__decription {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.4); }
+  .products__item .products__item__footer div {
+    flex: 1 1; }
+  .products__item .products__item__footer .products__item__buy-now {
+    background-color: rgba(0, 128, 0, 0.5);
+    padding: 5px;
+    cursor: pointer; }
+  .products__item .products__item__footer .products__item__price {
+    background-color: rgba(194, 194, 194, 0.6);
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.9); }
+
+header .header__botNav .header__user {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.9); }
+  header .header__botNav .header__user:hover {
+    color: green; }
+header .header__botNav .header__cart {
+  cursor: pointer; }
+  header .header__botNav .header__cart .header__cart__icon {
+    font-size: 30px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.9);
+    transform: translateY(2px); }
+  header .header__botNav .header__cart .header__cart__badge {
+    z-index: 2;
+    top: 0;
+    right: -9px; }
+  header .header__botNav .header__cart:hover .header__cart__icon {
+    color: green; }
+
+.carouselShoesShop {
+  background: url("../img/image 6.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  padding: 50px 0;
+  min-height: 300px;
+  object-fit: cover; }
+  .carouselShoesShop .carouselShoesShop__content h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.9); }
+  .carouselShoesShop .carouselShoesShop__content p {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.9); }
+  @media screen and (min-width: 768px) {
+    .carouselShoesShop .carouselShoesShop__content {
+      position: absolute;
+      top: 50%;
+      right: 15%;
+      transform: translateY(-50%); } }
+  @media screen and (min-width: 768px) {
+    .carouselShoesShop {
+      position: relative; } }
+
+.products {
+  padding-top: 50px; }
+  .products .products__title {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    margin-bottom: 20px; }
+
+footer {
+  padding-top: 50px; }
+  footer ul {
+    list-style-type: none; }
+    footer ul a {
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.9); }
+      footer ul a:hover {
+        text-decoration: none; }
+  footer .bot-footer {
+    text-align: center;
+    padding: 15px; }
+
+@media screen and (min-width: 768px) {
+  .carouselShoesShop .carouselShoesShop__content h2 {
+    font-size: 32px; } }
+@media screen and (min-width: 768px) {
+  .carouselShoesShop .carouselShoesShop__content p {
+    font-size: 24px; } }
+@media screen and (min-width: 768px) {
+  .carouselShoesShop .carouselShoesShop__content {
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%); } }
+@media screen and (min-width: 768px) {
+  .carouselShoesShop {
+    position: relative; } }
+
+@media screen and (min-width: 768px) {
+  .products .products__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; }
+    .products .products__list .products__item {
+      margin-bottom: 0; } }
+@media screen and (min-width: 1200px) {
+  .products .products__list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px; } }
+@media screen and (min-width: 1400px) {
+  .products .products__list {
+    grid-template-columns: repeat(5, 1fr); } }
+
+@media screen and (min-width: 768px) {
+  footer .footer-support {
+    border-left: 1px solid rgba(194, 194, 194, 0.2);
+    border-right: 1px solid rgba(194, 194, 194, 0.2); } }
 
 /*# sourceMappingURL=main.css.map */

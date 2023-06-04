@@ -1,0 +1,9 @@
+// dùng cho trang index và sản phẩm liên quan trong phần chi tiết sản phẩm
+.products{
+    padding-top: $p-50-cn;
+    .products__title {
+        @include textStyle($fs-16-cn, $fw-b-cn, $black-1-cn);
+        text-align: center;
+        margin-bottom: $m-20-cn;
+    }
+}
