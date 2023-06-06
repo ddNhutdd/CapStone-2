@@ -1,0 +1,59 @@
+.cart-dailog {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+
+    .cart {
+        position: absolute;
+        top: 117px;
+        right: 30px;
+        max-width: $percen-80;
+        background-color: $gray-3-cn;
+        border-radius: $border-curse;
+
+        .cart-dailog__title {
+            @include textStyle($fs-24-cn, $fw-b-cn, $black-1-cn);
+        }
+
+        .cart-dailog__record {
+            div {
+                margin-right: $m-5-cn;
+            }
+
+            div:nth-of-type(1) {
+                width: $percen-20;
+            }
+
+            div:nth-of-type(2) {
+                width: $percen-30;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            div:last-of-type {
+                width: 10px;
+                @include textStyle($fs-16-cn + 2, $fw-b-cn, $black-1-cn);
+                cursor: pointer;
+            }
+
+            input {
+                width: 20px;
+            }
+
+            .cart-dailog__operator {
+                @include textStyle($fs-16-cn, $fw-b-cn);
+                cursor: pointer;
+            }
+        }
+
+        .cart-dailog__total-price {
+            @include textStyle($fs-16-cn, $fw-b-cn);
+        }
+
+        .cart-dailog__buttons {
+            text-align: right;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.detail {
+    padding-top: $p-50-cn;
+
+    img {
+        object-fit: cover;
+        background-color: $gray-1-cn;
+    }
+
+    h2 {
+        @include textStyle($fs-32-cn, $fw-b-cn, $green-1-cn)
+    }
+
+    .detail__size-item {
+        background-color: $black-2-cn;
+        padding: $p-10-cn;
+        margin-right: $m-10-cn;
+        @include textStyle($fs-16-cn, $fw-b-cn);
+    }
+
+    .detail__price {
+        @include textStyle($fs-32-cn, $fw-b-cn, $red-1-cn);
+    }
+
+    .detail__subtract,
+    .detail__add {
+        width: 38px;
+    }
+}
