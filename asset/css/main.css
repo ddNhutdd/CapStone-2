@@ -9,6 +9,10 @@
 -------------------------------------------------- */
 /* padding
 -------------------------------------------------- */
+/* border radius
+-------------------------------------------------- */
+/* phần trăm
+-------------------------------------------------- */
 /* responsive
 -------------------------------------------------- */
 * {
@@ -206,34 +210,6 @@ h1 {
   margin: 0 0 40px;
 }
 
-label {
-  position: absolute;
-  transform: translateY(6px);
-  left: 13px;
-  color: rgba(255, 255, 255, 0.5);
-  transition: all 0.25s ease;
-  -webkit-backface-visibility: hidden;
-  pointer-events: none;
-  font-size: 22px;
-}
-label .req {
-  margin: 2px;
-  color: #1ab188;
-}
-
-label.active {
-  transform: translateY(50px);
-  left: 2px;
-  font-size: 14px;
-}
-label.active .req {
-  opacity: 0;
-}
-
-label.highlight {
-  color: #ffffff;
-}
-
 input, textarea {
   font-size: 22px;
   display: block;
@@ -288,7 +264,6 @@ textarea {
   background: #1ab188;
   color: #ffffff;
   transition: all 0.5s ease;
-  -webkit-appearance: none;
 }
 .button:hover, .button:focus {
   background: #179b77;
@@ -306,6 +281,92 @@ textarea {
 
 .title p {
   font-size: 32px;
+}
+
+.detail {
+  padding-top: 50px;
+}
+.detail img {
+  object-fit: cover;
+  background-color: rgba(194, 194, 194, 0.2);
+}
+.detail h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: green;
+}
+.detail .detail__size-item {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.9);
+}
+.detail .detail__price {
+  font-size: 32px;
+  font-weight: 700;
+  color: red;
+}
+.detail .detail__subtract,
+.detail .detail__add {
+  width: 38px;
+}
+
+.cart-dailog {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+}
+.cart-dailog .cart {
+  position: absolute;
+  top: 117px;
+  right: 30px;
+  max-width: 80%;
+  background-color: rgb(194, 194, 194);
+  border-radius: 5px;
+}
+.cart-dailog .cart .cart-dailog__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.9);
+}
+.cart-dailog .cart .cart-dailog__record div {
+  margin-right: 5px;
+}
+.cart-dailog .cart .cart-dailog__record div:nth-of-type(1) {
+  width: 20%;
+}
+.cart-dailog .cart .cart-dailog__record div:nth-of-type(2) {
+  width: 30%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cart-dailog .cart .cart-dailog__record div:last-of-type {
+  width: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+}
+.cart-dailog .cart .cart-dailog__record input {
+  width: 20px;
+}
+.cart-dailog .cart .cart-dailog__record .cart-dailog__operator {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+}
+.cart-dailog .cart .cart-dailog__total-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.9);
+}
+.cart-dailog .cart .cart-dailog__buttons {
+  text-align: right;
 }
 
 @media screen and (min-width: 768px) {
