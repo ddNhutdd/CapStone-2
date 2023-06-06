@@ -116,6 +116,30 @@ footer {
     text-align: center;
     padding: 15px; }
 
+.detail {
+  padding-top: 50px; }
+  .detail img {
+    object-fit: cover;
+    background-color: rgba(194, 194, 194, 0.2); }
+  .detail h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: green; }
+  .detail .detail__size-item {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.9); }
+  .detail .detail__price {
+    font-size: 32px;
+    font-weight: 700;
+    color: red; }
+  .detail .detail__subtract,
+  .detail .detail__add {
+    width: 38px; }
+
 @media screen and (min-width: 768px) {
   .carouselShoesShop .carouselShoesShop__content h2 {
     font-size: 32px; } }

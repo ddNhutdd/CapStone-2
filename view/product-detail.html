@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoes Shop</title>
+    <!-- font Roboto  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <!-- google icon -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <!-- bootstrap@4.6.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- font-awesome/6.4.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- main css -->
+    <link rel="stylesheet" href="../asset/css/main.css">
+</head>
+
+<body>
+    <!--=====================================
+    =                Header                =
+    ======================================-->
+    <header>
+        <container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">CyperSoft</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarShoesShop"
+                    aria-controls="navbarShoesShop" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarShoesShop">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Men</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Women</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Kid</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Sport</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <div class="nav-item dropdown">
+                            <a class="nav-link pl-0  dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                aria-expanded="false">
+                                Nhãn hiệu
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">All</a>
+                                <a class="dropdown-item" href="#">Adidas</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+            <div class="header__botNav flex-row-reverse justify-content-start navbar navbar-light bg-light">
+                <div class="header__user ml-3 p-1">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="ml-2">Ngân Hà</span>
+                </div>
+                <div class="header__cart position-relative p-1">
+                    <span class="badge badge-primary badge-pill position-absolute header__cart__badge">14</span>
+                    <span class="material-symbols-outlined header__cart__icon">
+                        shopping_cart
+                    </span>
+                </div>
+            </div>
+        </container>
+    </header>
+    <!--=====================================
+    =                Detail                =
+    ======================================-->
+    <section class="detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mb-4 col-md-5 mb-md-0"><img class="w-100"
+                        src="https://shop.cyberlearn.vn/images/adidas-prophere.png" alt="err"></div>
+                <div class="col-12 col-md-7">
+                    <h2>Product name</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et amet nobis expedita obcaecati, quis
+                        omnis minus aliquid voluptatum. Quia ipsa iure necessitatibus commodi delectus adipisci corrupti
+                        ipsum reiciendis, nulla eius?</p>
+                    <h3>Avaliable size</h3>
+                    <div class="detail__size-list d-flex">
+                        <div class="detail__size-item">38</div>
+                        <div class="detail__size-item">39</div>
+                        <div class="detail__size-item">40</div>
+                        <div class="detail__size-item">41</div>
+                        <div class="detail__size-item">42</div>
+                    </div>
+                    <div class="my-3 detail__price">85$</div>
+                    <div class="d-flex align-items-center detail__amount">
+                        <button class="btn btn-success detail__subtract">-</button>
+                        <div class="mx-4 detail__buy-number">0</div>
+                        <button class="btn btn-success detail__add">+</button>
+                    </div>
+                    <button class="mt-3 btn btn-danger">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=====================================
+    =                Products                =
+    ======================================-->
+    <section class="products">
+        <div class="container">
+            <div class="products__title">
+                - Realate Product -
+            </div>
+            <div class="products__list">
+                <div class="products__item ">
+                    <div class="products__item__body">
+                        <div class="products__item__img">
+                            <img class="img-fluid" src="https://shop.cyberlearn.vn/images/adidas-prophere.png"
+                                alt="err">
+                        </div>
+                        <div class="products__item__text">
+                            <h3 class="products__item__text__title">
+                                Adidas Prophere
+                            </h3>
+                            <p class="products__item__text__decription mb-0">
+                                short decription ...
+                            </p>
+                        </div>
+                    </div>
+                    <div class="products__item__footer d-flex align-items-stretch">
+                        <div class="products__item__buy-now text-center">
+                            Buy now
+                        </div>
+                        <div class="products__item__price text-center">
+                            85$
+                        </div>
+                    </div>
+                </div>
+                <div class="products__item ">
+                    <div class="products__item__body">
+                        <div class="products__item__img">
+                            <img class="img-fluid" src="https://shop.cyberlearn.vn/images/adidas-prophere.png"
+                                alt="err">
+                        </div>
+                        <div class="products__item__text">
+                            <h3 class="products__item__text__title">
+                                Adidas Prophere
+                            </h3>
+                            <p class="products__item__text__decription mb-0">
+                                short decription ...
+                            </p>
+                        </div>
+                    </div>
+                    <div class="products__item__footer d-flex align-items-stretch">
+                        <div class="products__item__buy-now text-center">
+                            Buy now
+                        </div>
+                        <div class="products__item__price text-center">
+                            85$
+                        </div>
+                    </div>
+                </div>
+                <div class="products__item ">
+                    <div class="products__item__body">
+                        <div class="products__item__img">
+                            <img class="img-fluid" src="https://shop.cyberlearn.vn/images/adidas-prophere.png"
+                                alt="err">
+                        </div>
+                        <div class="products__item__text">
+                            <h3 class="products__item__text__title">
+                                Adidas Prophere
+                            </h3>
+                            <p class="products__item__text__decription mb-0">
+                                short decription ...
+                            </p>
+                        </div>
+                    </div>
+                    <div class="products__item__footer d-flex align-items-stretch">
+                        <div class="products__item__buy-now text-center">
+                            Buy now
+                        </div>
+                        <div class="products__item__price text-center">
+                            85$
+                        </div>
+                    </div>
+                </div>
+                <div class="products__item ">
+                    <div class="products__item__body">
+                        <div class="products__item__img">
+                            <img class="img-fluid" src="https://shop.cyberlearn.vn/images/adidas-prophere.png"
+                                alt="err">
+                        </div>
+                        <div class="products__item__text">
+                            <h3 class="products__item__text__title">
+                                Adidas Prophere
+                            </h3>
+                            <p class="products__item__text__decription mb-0">
+                                short decription ...
+                            </p>
+                        </div>
+                    </div>
+                    <div class="products__item__footer d-flex align-items-stretch">
+                        <div class="products__item__buy-now text-center">
+                            Buy now
+                        </div>
+                        <div class="products__item__price text-center">
+                            85$
+                        </div>
+                    </div>
+                </div>
+                <div class="products__item ">
+                    <div class="products__item__body">
+                        <div class="products__item__img">
+                            <img class="img-fluid" src="https://shop.cyberlearn.vn/images/adidas-prophere.png"
+                                alt="err">
+                        </div>
+                        <div class="products__item__text">
+                            <h3 class="products__item__text__title">
+                                Adidas Prophere
+                            </h3>
+                            <p class="products__item__text__decription mb-0">
+                                short decription ...
+                            </p>
+                        </div>
+                    </div>
+                    <div class="products__item__footer d-flex align-items-stretch">
+                        <div class="products__item__buy-now text-center">
+                            Buy now
+                        </div>
+                        <div class="products__item__price text-center">
+                            85$
+                        </div>
+                    </div>
+                </div>
+                <div class="products__item ">
+                    <div class="products__item__body">
+                        <div class="products__item__img">
+                            <img class="img-fluid" src="https://shop.cyberlearn.vn/images/adidas-prophere.png"
+                                alt="err">
+                        </div>
+                        <div class="products__item__text">
+                            <h3 class="products__item__text__title">
+                                Adidas Prophere
+                            </h3>
+                            <p class="products__item__text__decription mb-0">
+                                short decription ...
+                            </p>
+                        </div>
+                    </div>
+                    <div class="products__item__footer d-flex align-items-stretch">
+                        <div class="products__item__buy-now text-center">
+                            Buy now
+                        </div>
+                        <div class="products__item__price text-center">
+                            85$
+                        </div>
+                    </div>
+                </div>
+                <div class="products__item ">
+                    <div class="products__item__body">
+                        <div class="products__item__img">
+                            <img class="img-fluid" src="https://shop.cyberlearn.vn/images/adidas-prophere.png"
+                                alt="err">
+                        </div>
+                        <div class="products__item__text">
+                            <h3 class="products__item__text__title">
+                                Adidas Prophere
+                            </h3>
+                            <p class="products__item__text__decription mb-0">
+                                short decription ...
+                            </p>
+                        </div>
+                    </div>
+                    <div class="products__item__footer d-flex align-items-stretch">
+                        <div class="products__item__buy-now text-center">
+                            Buy now
+                        </div>
+                        <div class="products__item__price text-center">
+                            85$
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=====================================
+    =                Footer                =
+    ======================================-->
+    <footer>
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <h2>GET HELP</h2>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Nike</a></li>
+                        <li><a href="#">Adidas</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-support col-12 col-sm-6 col-md-4 ">
+                    <h2>SUPPORT</h2>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Phone</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h2>REGISTER</h2>
+                    <ul>
+                        <li><a href="#">register</a></li>
+                        <li><a href="#">login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class='bot-footer navbar-light bg-light'>
+            © 2022 Cybersoft All Right Reserved | Design Theme by Trương Tấn Khải
+        </div>
+    </footer>
+    <!-- bootstrap@4.6.2 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
