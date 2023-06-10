@@ -3,6 +3,11 @@
     background-color: $gray-1-cn;
     .products__item__body {
         padding: $p-15-cn;
+       
+        &:hover {
+            border: 1px solid $red-1-cn;
+            cursor: pointer;
+        }
         .products__item__text__title {
             @include textStyle($fs-16-cn, $fw-b-cn, $black-1-cn)
     
@@ -18,7 +23,11 @@
         .products__item__buy-now {
             background-color: $green-2-cn;
             padding: $p-5-cn;
+            border: $border-1 $transparent;
             cursor: pointer;
+            &:hover {
+                border-color:  $red-1-cn;
+            }
         }
         .products__item__price {
             background-color: $gray-2-cn;
