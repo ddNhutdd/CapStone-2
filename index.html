@@ -69,17 +69,27 @@
                                 <!-- js render -->
                             </div>
                         </div>
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
                     </form>
                 </div>
             </nav>
             <div class="header__botNav flex-row-reverse justify-content-start navbar navbar-light bg-light">
                 <div class="header__user ml-3 p-1">
-                    <i class="fa-solid fa-user"></i>
-                    <span class="ml-2">Login</span>
+                    <i class="fa-solid fa-user d-none"></i>
+                    <span class="ml-2 d-none">Login</span>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-user"></i>
+                            <span class="ml-2">Login</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item">logout</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="header__cart position-relative p-1 d-none">
-                    <span class="badge badge-primary badge-pill position-absolute header__cart__badge">14</span>
+                <div class="header__cart position-relative p-1 ">
+                    <span class="badge badge-primary badge-pill position-absolute header__cart__badge">0</span>
                     <span class="material-symbols-outlined header__cart__icon">
                         shopping_cart
                     </span>
@@ -154,27 +164,17 @@
     <!--=====================================
     =                cart-dialog                =
     ======================================-->
-    <div id="cart-dailog" class="w-100 h-100 d-none cart-dailog">
+    <div id="cart-dailog" class="w-100 h-100 cart-dailog d-none">
         <div class="cart p-3">
             <div class="d-flex justify-content-between align-items-center border-bottom">
                 <p class="m-0 cart-dailog__title">Shoes cart</p>
-                <p class="m-0">3 items</p>
+                <p class="m-0" id="totalItems-dailog">0 item</p>
             </div>
-            <div class="my-2 d-flex justify-content-between align-items-center border-bottom cart-dailog__record">
-                <div>
-                    <img class="w-100" src="https://shop.cyberlearn.vn/images/adidas-prophere.png" alt="err">
-                </div>
-                <div>Đây là tên của sản phẩm </div>
-                <div class="d-flex align-items-center  ">
-                    <span class="cart-dailog__operator">-</span>
-                    <input class="mx-2" value="2" type="number">
-                    <span class="cart-dailog__operator">+</span>
-                </div>
-                <div>90$</div>
-                <div>X</div>
+            <div class="card-dailog__listRecord">
+                Not any thing
             </div>
             <div class="mb-2 border-bottom text-right cart-dailog__total-price">
-                Total: 90$
+                Total: 0$
             </div>
             <div class="cart-dailog__buttons">
                 <button class="btn btn-success">Buy</button>
@@ -193,7 +193,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
         integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="./services/global.js"></script>
+    <!-- sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- global js -->
+    <script src="./services/global.js"></script>
     <!-- index.js -->
     <script type="module" src='./services/index.js'></script>
 </body>

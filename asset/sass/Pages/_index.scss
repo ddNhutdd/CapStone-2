@@ -11,6 +11,9 @@
         max-width: $percen-80;
         background-color: $gray-3-cn;
         border-radius: $border-curse;
+        z-index: 100;
+        max-height: $percen-80;
+        overflow: scroll;
 
         .cart-dailog__title {
             @include textStyle($fs-24-cn, $fw-b-cn, $black-1-cn);
@@ -33,13 +36,14 @@
             }
 
             div:last-of-type {
-                width: 10px;
+                width: $w-10-cn;
                 @include textStyle($fs-16-cn + 2, $fw-b-cn, $black-1-cn);
                 cursor: pointer;
             }
 
             input {
-                width: 20px;
+                width: $w-35-cn;
+                color: $black-1-cn;
             }
 
             .cart-dailog__operator {
@@ -49,7 +53,7 @@
         }
 
         .cart-dailog__total-price {
-            @include textStyle($fs-16-cn, $fw-b-cn);
+            @include textStyle($fs-24-cn, $fw-b-cn);
         }
 
         .cart-dailog__buttons {
