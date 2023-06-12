@@ -1,65 +1,27 @@
 import product from "../model/product.js";
 import category from "../model/category.js";
+/* variable 
+-------------------------------------------------- */
+const dropDownSearchVariable = {
+    All: 'All',
+    Adidas: 'Adidas',
+    Men: 'Men',
+    Nike: 'Nike',
+    VansConverse: 'Vans Converse',
+    Women: 'Women'
+}
 /* function 
 -------------------------------------------------- */
 /**
  * hàm load dữ liệu lên phần list product của trang index
  */
-const loadProduct = () => {
+const loadAllProduct = () => {
     try {
         AXIOS_INS.get(DOMAIN_API_PRODUCT).then((response) => {
             let result = response.data.content;
-            let eleList = document.querySelector('.products .products__list')
-            let htmlRender = ''
-            for (let i = 0; i < result.length; i++) {
-                const ele = result[i]
-                htmlRender += `
-                <div class="products__item d-flex flex-column justify-content-between">
-                <div class="products__item__body flex-fill" id="product-${ele.id}">
-                    <div class="products__item__img">
-                        <img class="img-fluid" src="${ele.image}"
-                            alt="err">
-                    </div>
-                    <div class="products__item__text">
-                        <h3 class="products__item__text__title">
-                            ${ele.name}
-                        </h3>
-                        <p class="products__item__text__decription mb-0">
-                            ${ele.shortDescription}
-                        </p>
-                    </div>
-                </div>
-                <div class="products__item__footer d-flex align-items-stretch">
-                    <div class="products__item__buy-now text-center" id="buy_${ele.id}_${ele.image}_${ele.name}_${ele.price}">
-                        Buy now
-                    </div>
-                    <div class="products__item__price text-center">
-                        ${ele.price}$
-                    </div>
-                </div>
-            </div>
-                `
-            }
-            eleList.innerHTML = htmlRender;
-            let lstBuyNow = document.querySelectorAll('.products .products__item__buy-now')
-            for (let i = 0; i < lstBuyNow.length; i++) {
-                let ele = lstBuyNow[i];
-                ele.addEventListener('click', () => {
-                    let [des, id, image, name, price] = ele.id.split('_')
-                    buyProductClick(id, image, name, price)
-                })
-            }
-            let lstProduct = document.querySelectorAll('.products .products__item__body')
-            for (let i = 0; i < lstProduct.length; i++) {
-                let ele = lstProduct[i];
-                ele.addEventListener('click', () => {
-                    let jb = ele.id.split('-')[1]
-                    showProductDetail(jb)
-                })
-            }
+            loadProduct(result);
         })
-    } catch (error) {
-    }
+    } catch (error) { }
 }
 /**
  * hàm load Catelory lên phần search
@@ -84,6 +46,60 @@ const getAllCatelory = () => {
             }
         })
     } catch (error) {
+    }
+}
+/**
+ * hàm load sản phẩm lên giao diện
+ * @listProduct {array} : danh sách sản phẩm cần load lên giao diện
+ */
+const loadProduct = (listProduct) => {
+    let eleList = document.querySelector('.products .products__list');
+    let htmlRender = '';
+    for (let i = 0; i < listProduct.length; i++) {
+        const ele = listProduct[i];
+        htmlRender += `
+            <div class="products__item d-flex flex-column justify-content-between">
+            <div class="products__item__body flex-fill" id="product-${ele.id}">
+                <div class="products__item__img">
+                    <img class="img-fluid" src="${ele.image}"
+                        alt="err">
+                </div>
+                <div class="products__item__text">
+                    <h3 class="products__item__text__title">
+                        ${ele.name}
+                    </h3>
+                    <p class="products__item__text__decription mb-0">
+                        ${ele.shortDescription}
+                    </p>
+                </div>
+            </div>
+            <div class="products__item__footer d-flex align-items-stretch">
+                <div class="products__item__buy-now text-center" id="buy_${ele.id}_${ele.image}_${ele.name}_${ele.price}">
+                    Buy now
+                </div>
+                <div class="products__item__price text-center">
+                    ${ele.price}$
+                </div>
+            </div>
+        </div>
+    `;
+    }
+    eleList.innerHTML = htmlRender;
+    let lstBuyNow = document.querySelectorAll('.products .products__item__buy-now');
+    for (let i = 0; i < lstBuyNow.length; i++) {
+        let ele = lstBuyNow[i];
+        ele.addEventListener('click', () => {
+            let [des, id, image, name, price] = ele.id.split('_');
+            buyProductClick(id, image, name, price);
+        });
+    }
+    let lstProduct = document.querySelectorAll('.products .products__item__body');
+    for (let i = 0; i < lstProduct.length; i++) {
+        let ele = lstProduct[i];
+        ele.addEventListener('click', () => {
+            let jb = ele.id.split('-')[1];
+            showProductDetail(jb);
+        });
     }
 }
 /**
@@ -155,20 +171,16 @@ const updateCartDailog = () => {
         document.querySelector('#cart-dailog .cart-dailog__total-price').innerHTML = 'Total: ' + totalPrice.toLocaleString() + '$'
     }
     let arrRemove = document.querySelectorAll('#cart-dailog div[id*="remove-record-"]')
-    console.log("arrRemove: ", arrRemove);
     for (let i in arrRemove) {
         let id = arrRemove[i].id
         if (id == undefined) return
         id = id.split('-')[2]
-        console.log("id: ", id);
         arrRemove[i].addEventListener('click', () => {
             let dataLocal = JSON.parse(localStorage.getItem(STR_LIST_PRODUCT_IN_CART))
             if (dataLocal !== null) {
                 let iRemove = dataLocal.findIndex(n => n.id == id)
-                console.log("iRemove: ", iRemove);
                 if (iRemove != -1) {
                     dataLocal.splice(iRemove, 1);
-                    console.log("dataLocal: ", dataLocal);
                 }
                 localStorage.setItem(STR_LIST_PRODUCT_IN_CART, JSON.stringify(dataLocal));
                 let eleListRecord = document.querySelector('#cart-dailog .card-dailog__listRecord')
@@ -216,6 +228,12 @@ const hideElement = (cssSelectorString) => {
     element.classList.remove('d-block')
     element.classList.add('d-none')
 }
+/**
+ * hàm xoá khoảng của string
+ */
+const removeSpace = (str) => {
+    return str.replace(/\s/g, '');
+}
 /* event
 -------------------------------------------------- */
 /**
@@ -238,7 +256,6 @@ document.querySelector('header .header__cart').addEventListener('click', () => {
  * người dùng nhấn nút thanh toán trong dailog giỏ hàng
  */
 document.querySelector('#cart-dailog .cart-dailog__buttons .btn-success').addEventListener('click', () => {
-    console.log('chuyển trang giỏ hàng')
 })
 /**
  * sự kiện khi người dung click vào nút đóng trên cart dailog
@@ -249,11 +266,57 @@ document.querySelector('#cart-dailog .cart-dailog__buttons .btn-danger').addEven
 /**
  * sự kiện khi người dùng nhấn vào nút serch 
  */
-document.querySelector('header form btn-outline-success').addEventListener('click', () => {
-    
+document.querySelector('header form button').addEventListener('click', () => {
+    let eleMeSearch = document.querySelector('header form input').value;
+    let eleDropCatelog = document.querySelector('header form .nav-link.dropdown-toggle').innerHTML;
+    // nếu catelog == all và input search rỗng
+    if (removeSpace(eleDropCatelog) == dropDownSearchVariable.All && eleMeSearch == '') {
+        loadAllProduct();
+        return;
+    }
+    // nếu catelog == all và input search có giá trị
+    if (removeSpace(eleDropCatelog) == dropDownSearchVariable.All && eleMeSearch != '') {
+        try {
+            AXIOS_INS.get(DOMAIN_API_PRODUCT).then((response) => {
+                let result = response.data.content;
+                let disData = [];
+                let stringSearch = removeSpace(eleMeSearch).toLowerCase()
+                disData = result.filter(n => {
+                    let name = removeSpace(n.name).toLowerCase();
+                    return name.includes(stringSearch);
+                })
+                loadProduct(disData);
+            })
+        } catch (err) { }
+    }
+    // nếu catelog có giá trị và input search rỗng
+    if (removeSpace(eleDropCatelog) != dropDownSearchVariable.All && eleMeSearch == '') {
+        let te = eleDropCatelog.trimStart().trimEnd().toUpperCase().replace(/\s/g, '_');
+        try {
+            AXIOS_INS.get(DOMAIN_API_PRODUCT_BY_CATELORY + te).then((response) => {
+                loadProduct(response.data.content)
+            })
+        } catch (error) { }
+    }
+    // nếu catelog có giá trị và input search có giá trị
+    if (removeSpace(eleDropCatelog) != dropDownSearchVariable.All && eleMeSearch != '') {
+        let te = eleDropCatelog.trimStart().trimEnd().toUpperCase().replace(/\s/g, '_');
+        let stringSearch = removeSpace(eleMeSearch).toLowerCase();
+        try {
+            AXIOS_INS.get(DOMAIN_API_PRODUCT_BY_CATELORY + te).then((response) => {
+                let result = response.data.content;
+                let disData = [];
+                disData = result.filter(n => {
+                    let name = removeSpace(n.name).toLowerCase();
+                    return name.includes(stringSearch);
+                })
+                loadProduct(disData);
+            })
+        } catch (error) { }
+    }
 })
 /* gọi hàm khi load page 
 -------------------------------------------------- */
-loadProduct();
+loadAllProduct();
 getAllCatelory();
 updateCartDailog();
