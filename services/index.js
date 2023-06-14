@@ -320,3 +320,4 @@ document.querySelector('header form button').addEventListener('click', () => {
 loadAllProduct();
 getAllCatelory();
 updateCartDailog();
+
