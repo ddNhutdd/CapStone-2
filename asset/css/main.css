@@ -13,6 +13,8 @@
 -------------------------------------------------- */
 /* phần trăm
 -------------------------------------------------- */
+/* width
+-------------------------------------------------- */
 /* responsive
 -------------------------------------------------- */
 * {
@@ -29,6 +31,9 @@ body, html {
   background-color: rgba(194, 194, 194, 0.2); }
   .products__item .products__item__body {
     padding: 15px; }
+    .products__item .products__item__body:hover {
+      border: 1px solid red;
+      cursor: pointer; }
     .products__item .products__item__body .products__item__text__title {
       font-size: 16px;
       font-weight: 700;
@@ -42,7 +47,10 @@ body, html {
   .products__item .products__item__footer .products__item__buy-now {
     background-color: rgba(0, 128, 0, 0.5);
     padding: 5px;
+    border: 1px solid transparent;
     cursor: pointer; }
+    .products__item .products__item__footer .products__item__buy-now:hover {
+      border-color: red; }
   .products__item .products__item__footer .products__item__price {
     background-color: rgba(194, 194, 194, 0.6);
     padding: 5px;
@@ -257,7 +265,10 @@ span {
     right: 30px;
     max-width: 80%;
     background-color: #c2c2c2;
-    border-radius: 5px; }
+    border-radius: 5px;
+    z-index: 100;
+    max-height: 80%;
+    overflow: scroll; }
     .cart-dailog .cart .cart-dailog__title {
       font-size: 24px;
       font-weight: 700;
@@ -278,14 +289,15 @@ span {
       color: rgba(0, 0, 0, 0.9);
       cursor: pointer; }
     .cart-dailog .cart .cart-dailog__record input {
-      width: 20px; }
+      width: 35px;
+      color: rgba(0, 0, 0, 0.9); }
     .cart-dailog .cart .cart-dailog__record .cart-dailog__operator {
       font-size: 16px;
       font-weight: 700;
       color: rgba(0, 0, 0, 0.9);
       cursor: pointer; }
     .cart-dailog .cart .cart-dailog__total-price {
-      font-size: 16px;
+      font-size: 24px;
       font-weight: 700;
       color: rgba(0, 0, 0, 0.9); }
     .cart-dailog .cart .cart-dailog__buttons {
