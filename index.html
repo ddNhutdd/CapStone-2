@@ -31,8 +31,8 @@
     =                Header                =
     ======================================-->
     <header>
-        <container>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light pt-5">
+            <div class="container">
                 <a class="navbar-brand" href="#">CyperSoft</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarShoesShop"
                     aria-controls="navbarShoesShop" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,28 +70,30 @@
                         <button class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
                     </form>
                 </div>
-            </nav>
-            <div class="header__botNav flex-row-reverse justify-content-start navbar navbar-light bg-light">
+            </div>
+        </nav>
+        <div class="header__botNav navbar navbar-light bg-light pb-4">
+            <div class="container flex-row-reverse justify-content-start">
                 <div class="header__user ml-3 p-1">
-                    <i class="fa-solid fa-user d-none"></i>
-                    <span class="ml-2 d-none">Login</span>
-                    <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                            aria-expanded="false">NganHa
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item">logout</a>
-                        </div>
+                    <i class="fa-solid fa-user"></i>
+                    <span class="ml-2">Login</span>
+                </div>
+                <div class="nav-item dropdown d-none">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-expanded="false">NganHa
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item">logout</a>
                     </div>
                 </div>
-                <div class="header__cart position-relative p-1 ">
+                <div class="header__cart position-relative p-1 d-none">
                     <span class="badge badge-primary badge-pill position-absolute header__cart__badge">0</span>
                     <span class="material-symbols-outlined header__cart__icon">
                         shopping_cart
                     </span>
                 </div>
             </div>
-        </container>
+        </div>
     </header>
     <!--=====================================
     =                Carousel                =
@@ -192,6 +194,7 @@
     <!-- sweetalert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./services/global.js"></script>
+    <!-- index.js -->
     <script type="module" src="./services/index.js"></script>
 </body>
 

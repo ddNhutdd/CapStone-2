@@ -24,31 +24,6 @@ const loadAllProduct = () => {
     } catch (error) { }
 }
 /**
- * hàm load Catelory lên phần search
- */
-const getAllCatelory = () => {
-    try {
-        AXIOS_INS.get(DOMAIN_API_CATELORY).then((response) => {
-            let result = response.data.content;
-            result = [{ category: 'All' }, ...result]
-            for (let i = 0; i < result.length; i++) {
-                const ele = result[i];
-                let text = ''
-                text = ele.category.toLowerCase();
-                text = text.replace(/\b\w/g, l => l.toUpperCase())
-                let htmlEle = document.createElement('a')
-                htmlEle.innerHTML = text
-                htmlEle.className = "dropdown-item";
-                htmlEle.addEventListener("click", () => {
-                    document.querySelector('header .navbar .nav-link.dropdown-toggle').innerHTML = text;
-                });
-                document.querySelector('header .navbar .dropdown-menu').appendChild(htmlEle)
-            }
-        })
-    } catch (error) {
-    }
-}
-/**
  * hàm load sản phẩm lên giao diện
  * @listProduct {array} : danh sách sản phẩm cần load lên giao diện
  */
@@ -112,18 +87,18 @@ const loadProduct = (listProduct) => {
 const buyProductClick = (id, image, name, price) => {
     // nếu người dùng chưa đăng nhập thì chuyển trang đăng nhập
     if (!isLogin()) {
-        //window.location.href = DOMAIN_LOGIN;
+        window.location.href = DOMAIN_LOGIN;
     }
     // chuẩn bị dữ liệu của người dùng
     let pro = new product();
     pro = { id, image, name, price }
     pro.quantity = 1
     // xử lí giỏ hàng và lưu vào local storage
-    let cartDetailJ = JSON.parse(localStorage.getItem(STR_LIST_PRODUCT_IN_CART))
+    let cartDetailJ = JSON.parse(localStorage.getItem(cartItems))
     if (cartDetailJ === null) {
         let arListCart = []
         arListCart.push(pro)
-        localStorage.setItem(STR_LIST_PRODUCT_IN_CART, JSON.stringify(arListCart));
+        localStorage.setItem(cartItems, JSON.stringify(arListCart));
     }
     else {
         let iProduct = cartDetailJ.findIndex(n => n.id === id)
@@ -132,7 +107,7 @@ const buyProductClick = (id, image, name, price) => {
         } else {
             cartDetailJ[iProduct].quantity += 1
         }
-        localStorage.setItem(STR_LIST_PRODUCT_IN_CART, JSON.stringify(cartDetailJ));
+        localStorage.setItem(cartItems, JSON.stringify(cartDetailJ));
     }
     // hiển thị thông báo cho người dùng
     swal("Chọn thành công");
@@ -140,49 +115,81 @@ const buyProductClick = (id, image, name, price) => {
     updateCartDailog();
 }
 /**
- * update thông tin cho cart dailog
+ * render html và add các sự kiện cho cart dailog
  */
 const updateCartDailog = () => {
-    let te = JSON.parse(localStorage.getItem(STR_LIST_PRODUCT_IN_CART))
+    let te = JSON.parse(localStorage.getItem(cartItems))
     if (te !== null) {
         document.querySelector('header .header__cart__badge').innerHTML = te.length
         document.querySelector("#totalItems-dailog").innerHTML = te.length + (te.length > 1 ? ' items' : ' item')
         let htmlCon = ''
         let totalPrice = 0;
-        for (let ind in te) {
+        for (let ind of te) { // các dòng record
             htmlCon += `
-                <div id='record-${te[ind].id}' class="my-2 d-flex justify-content-between align-items-center border-bottom cart-dailog__record">
+                <div id='record-${ind.id}' class="my-2 d-flex justify-content-between align-items-center border-bottom cart-dailog__record">
                     <div>
-                        <img class="w-100" src="${te[ind].image}" alt="err">
+                        <img class="w-100" src="${ind.image}" alt="err">
                     </div>
-                    <div>${te[ind].name}</div>
+                    <div>${ind.name}</div>
                     <div class="d-flex align-items-center  ">
-                        <span class="cart-dailog__operator" id='subQuantity_${te[ind].id}'>-</span>
-                        <input class="mx-2" value="${te[ind].quantity}" type="text" disabled>
-                        <span class="cart-dailog__operator" id='addQuantity_${te[ind].id}'>+</span>
+                        <span class="cart-dailog__operator" id='subQuantity_${ind.id}'>-</span>
+                        <input class="mx-2" value="${ind.quantity}" type="text" disabled>
+                        <span class="cart-dailog__operator" id='addQuantity_${ind.id}'>+</span>
                     </div>
-                    <div>${te[ind].price * te[ind].quantity} $</div>
-                    <div id='remove-record-${te[ind].id}'>X</div>
+                    <div>${ind.price * ind.quantity} $</div>
+                    <div id='remove-record-${ind.id}'>X</div>
                 </div>
             `
-            totalPrice += te[ind].price * te[ind].quantity;
+            totalPrice += ind.price * ind.quantity;
         }
         document.querySelector('.card-dailog__listRecord').innerHTML = htmlCon;
         document.querySelector('#cart-dailog .cart-dailog__total-price').innerHTML = 'Total: ' + totalPrice.toLocaleString() + '$'
     }
+    // thêm sự kiện cho các nút + trên dialog
+    let addQuantity = document.querySelectorAll('#cart-dailog span[id*="addQuantity_"]')
+    for(let ele of addQuantity) {
+        ele.addEventListener('click', () => {
+            let id = ele.id.split('_')[1]
+            console.log("id: ", id);
+            let te = JSON.parse(localStorage.getItem(cartItems))
+            let inde = te.findIndex(n => n.id == id)
+            console.log("inde: ", inde);
+            te[inde].quantity += 1
+            localStorage.setItem(cartItems, JSON.stringify(te));
+            updateCartDailog()
+        })
+    }
+    // thêm sự kiện cho các nut - trên dialog
+    let subQuantity = document.querySelectorAll('#cart-dailog span[id*="subQuantity_"]')
+    for(let ele of subQuantity) {
+        ele.addEventListener('click', () => {
+            let id = ele.id.split('_')[1]
+            console.log("id: ", id);
+            let te = JSON.parse(localStorage.getItem(cartItems))
+            let inde = te.findIndex(n => n.id == id)
+            console.log("inde: ", inde);
+            te[inde].quantity -= 1
+            if(te[inde].quantity <= 0) {
+                te[inde].quantity = 1
+            }
+            localStorage.setItem(cartItems, JSON.stringify(te));
+            updateCartDailog()
+        })
+    }
+    // add event remove cho mỗi dòng record
     let arrRemove = document.querySelectorAll('#cart-dailog div[id*="remove-record-"]')
     for (let i in arrRemove) {
         let id = arrRemove[i].id
         if (id == undefined) return
         id = id.split('-')[2]
-        arrRemove[i].addEventListener('click', () => {
-            let dataLocal = JSON.parse(localStorage.getItem(STR_LIST_PRODUCT_IN_CART))
+        arrRemove[i].addEventListener('click', () => { 
+            let dataLocal = JSON.parse(localStorage.getItem(cartItems))
             if (dataLocal !== null) {
                 let iRemove = dataLocal.findIndex(n => n.id == id)
                 if (iRemove != -1) {
                     dataLocal.splice(iRemove, 1);
                 }
-                localStorage.setItem(STR_LIST_PRODUCT_IN_CART, JSON.stringify(dataLocal));
+                localStorage.setItem(cartItems, JSON.stringify(dataLocal));
                 let eleListRecord = document.querySelector('#cart-dailog .card-dailog__listRecord')
                 let eleRecordDeleted = document.getElementById('record-' + id)
                 eleListRecord.removeChild(eleRecordDeleted);
@@ -203,12 +210,6 @@ const updateCartDailog = () => {
  */
 const showProductDetail = (id) => {
     window.location.href = DOMAIN_PRODUCT_DETAIL + '?detail=' + id;
-}
-/**
- * hàm kiểm tra xem người dùng đã đăng nhập chưa
- */
-const isLogin = () => {
-    return true;
 }
 /**
  * hàm hiển thị phần tử lên giao diện
@@ -256,6 +257,11 @@ document.querySelector('header .header__cart').addEventListener('click', () => {
  * người dùng nhấn nút thanh toán trong dailog giỏ hàng
  */
 document.querySelector('#cart-dailog .cart-dailog__buttons .btn-success').addEventListener('click', () => {
+    if (isLogin()) {
+        window.location.href = DOMAIN_CART;
+    } else {
+        window.location.href = DOMAIN_LOGIN;
+    }
 })
 /**
  * sự kiện khi người dung click vào nút đóng trên cart dailog
@@ -317,7 +323,8 @@ document.querySelector('header form button').addEventListener('click', () => {
 })
 /* gọi hàm khi load page 
 -------------------------------------------------- */
+// localStorage.setItem(user, JSON.stringify("Ngân Hà"));
 loadAllProduct();
 getAllCatelory();
 updateCartDailog();
-
+showUserInfo();

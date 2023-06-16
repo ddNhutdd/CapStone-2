@@ -15,6 +15,11 @@
         padding: $p-10-cn;
         margin-right: $m-10-cn;
         @include textStyle($fs-16-cn, $fw-b-cn);
+        &:hover {
+            cursor: pointer;
+            background-color: $black-1-cn;
+            color: $white;
+        }
     }
 
     .detail__price {

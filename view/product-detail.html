@@ -31,8 +31,8 @@
     =                Header                =
     ======================================-->
     <header>
-        <container>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light pt-5">
+            <div class="container">
                 <a class="navbar-brand" href="#">CyperSoft</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarShoesShop"
                     aria-controls="navbarShoesShop" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,64 +59,49 @@
                     <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <div class="nav-item dropdown">
-                            <a class="nav-link pl-0  dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            <a class="nav-link pl-0 dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                                 aria-expanded="false">
-                                Nhãn hiệu
+                                All
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">All</a>
-                                <a class="dropdown-item" href="#">Adidas</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <!-- js render -->
                             </div>
                         </div>
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
                     </form>
                 </div>
-            </nav>
-            <div class="header__botNav flex-row-reverse justify-content-start navbar navbar-light bg-light">
+            </div>
+        </nav>
+        <div class="header__botNav navbar navbar-light bg-light pb-4">
+            <div class="container flex-row-reverse justify-content-start">
                 <div class="header__user ml-3 p-1">
                     <i class="fa-solid fa-user"></i>
-                    <span class="ml-2">Ngân Hà</span>
+                    <span class="ml-2">Login</span>
                 </div>
-                <div class="header__cart position-relative p-1">
-                    <span class="badge badge-primary badge-pill position-absolute header__cart__badge">14</span>
+                <div class="nav-item dropdown d-none">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-expanded="false">NganHa
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item">logout</a>
+                    </div>
+                </div>
+                <div class="header__cart position-relative p-1 d-none">
+                    <span class="badge badge-primary badge-pill position-absolute header__cart__badge">0</span>
                     <span class="material-symbols-outlined header__cart__icon">
                         shopping_cart
                     </span>
                 </div>
             </div>
-        </container>
+        </div>
     </header>
     <!--=====================================
     =                Detail                =
     ======================================-->
     <section class="detail">
         <div class="container">
-            <div class="row">
-                <div class="col-12 mb-4 col-md-5 mb-md-0"><img class="w-100"
-                        src="https://shop.cyberlearn.vn/images/adidas-prophere.png" alt="err"></div>
-                <div class="col-12 col-md-7">
-                    <h2>Product name</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et amet nobis expedita obcaecati, quis
-                        omnis minus aliquid voluptatum. Quia ipsa iure necessitatibus commodi delectus adipisci corrupti
-                        ipsum reiciendis, nulla eius?</p>
-                    <h3>Avaliable size</h3>
-                    <div class="detail__size-list d-flex">
-                        <div class="detail__size-item">38</div>
-                        <div class="detail__size-item">39</div>
-                        <div class="detail__size-item">40</div>
-                        <div class="detail__size-item">41</div>
-                        <div class="detail__size-item">42</div>
-                    </div>
-                    <div class="my-3 detail__price">85$</div>
-                    <div class="d-flex align-items-center detail__amount">
-                        <button class="btn btn-success detail__subtract">-</button>
-                        <div class="mx-4 detail__buy-number">0</div>
-                        <button class="btn btn-success detail__add">+</button>
-                    </div>
-                    <button class="mt-3 btn btn-danger">Add to Cart</button>
-                </div>
-            </div>
+            <!-- js render  -->
+            
         </div>
     </section>
     <!--=====================================
@@ -336,13 +321,21 @@
             © 2022 Cybersoft All Right Reserved | Design Theme by Trương Tấn Khải
         </div>
     </footer>
-    <!-- bootstrap@4.6.2 -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+        integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../services/global.js"></script>
+    <!-- index.js -->
+    <script  src="../services/product-detail.js"></script>
 </body>
 
 </html>
