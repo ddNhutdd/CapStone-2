@@ -387,7 +387,7 @@ document.querySelector('#cart-dailog .cart-dailog__buttons .btn-danger').addEven
 })
 /* gọi hàm khi load page 
 -------------------------------------------------- */
-localStorage.setItem(user, JSON.stringify("Ngân Hà"));
+// localStorage.setItem(user, JSON.stringify("Ngân Hà"));
 loadAllProduct();
 getAllCatelory();
 updateCartDailog();

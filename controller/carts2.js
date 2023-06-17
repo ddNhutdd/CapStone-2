@@ -1,6 +1,6 @@
 
 // Lấy danh sách sản phẩm trong giỏ hàng từ localStorage
-const cartItems = JSON.parse(localStorage.getItem('STR_LIST_PRODUCT_IN_CART')) || [];
+const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 console.log(cartItems);
 // cartItems
 

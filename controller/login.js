@@ -18,7 +18,7 @@ function ThemTK() {
         console.log(result);
         alert("Đăng kí tài khoản thành công")
         // Lưu thông tin người dùng vào localStorage
-        localStorage.setItem('user', JSON.stringify(result.data));
+        localStorage.setItem('user', name);
         window.location.href = 'carts.html';
     }).catch(function (error) {
         console.log(error);
@@ -49,8 +49,6 @@ function SignIn() {
     }).then(function (result) {
         console.log(result);
         alert("Đăng nhập thành công");
-        // Lưu thông tin người dùng vào localStorage
-        localStorage.setItem('user', JSON.stringify(result.data));
         window.location.href = 'carts.html';
     }).catch(function (error) {
         console.log(error);
