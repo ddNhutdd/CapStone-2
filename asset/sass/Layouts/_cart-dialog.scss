@@ -6,14 +6,16 @@
 
     .cart {
         position: absolute;
-        top: 117px;
-        right: 30px;
+        top: $percen-50;
+        right: $percen-50;
+        transform: translate($percen-50, -$percen-50);
         max-width: $percen-80;
         background-color: $gray-3-cn;
         border-radius: $border-curse;
         z-index: 100;
         max-height: $percen-80;
         overflow: scroll;
+        min-width: $percen-50;
 
         .cart-dailog__title {
             @include textStyle($fs-24-cn, $fw-b-cn, $black-1-cn);

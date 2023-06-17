@@ -31,6 +31,11 @@ const getAllCatelory = () => {
                 htmlEle.className = "dropdown-item";
                 htmlEle.addEventListener("click", () => {
                     document.querySelector('header .navbar .nav-link.dropdown-toggle').innerHTML = text;
+                    let ts = document.querySelector('header form input')
+                    ts.disabled = false;
+                    if (text == dropDownSearchVariable.RelatedProducts) {
+                        ts.disabled = true;
+                    }
                 });
                 document.querySelector('header .navbar .dropdown-menu').appendChild(htmlEle)
             }
@@ -236,6 +241,7 @@ const buyProductClick = (id, image, name, price) => {
     // nếu người dùng chưa đăng nhập thì chuyển trang đăng nhập
     if (!isLogin()) {
         window.location.href = DOMAIN_LOGIN;
+        return;
     }
     // chuẩn bị dữ liệu của người dùng
     let pro = new product();
@@ -369,6 +375,7 @@ const loadDetaiProduct = () => {
                     // nếu người dùng chưa đăng nhập thì chuyển trang đăng nhập
                     if (!isLogin()) {
                         window.location.href = DOMAIN_LOGIN;
+                        return;
                     }
                     let pro = new product();
                     pro = { ...result }
@@ -408,6 +415,8 @@ const loadDetaiProduct = () => {
 document.querySelector('header form button').addEventListener('click', () => {
     let eleMeSearch = document.querySelector('header form input').value;
     let eleDropCatelog = document.querySelector('header form .nav-link.dropdown-toggle').innerHTML;
+    let title = document.querySelector('.products .products__title')
+    title.innerHTML = '- Realate Product -'
     // nếu catalog có giá trị RelatedProducts
     if (removeSpace(eleDropCatelog) == removeSpace(dropDownSearchVariable.RelatedProducts)) {
         const urlParams = new URLSearchParams(window.location.search);
@@ -422,6 +431,7 @@ document.querySelector('header form button').addEventListener('click', () => {
         }
         return
     }
+    title.innerHTML = '- Searched Product -'
     // nếu catelog == all và input search rỗng
     if (removeSpace(eleDropCatelog) == dropDownSearchVariable.All && eleMeSearch == '') {
         loadAllProduct();

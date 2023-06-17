@@ -6,17 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login/Register</title>
-
   <!-- font Roboto  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet">
- 
-  
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../asset/css/main.css">
-
 </head>
 
 <body>
@@ -28,14 +24,12 @@
         <button type="button" class="toggle-btn" onclick="login()">Login</button>
         <button type="button" class="toggle-btn" onclick="signUp()">Register</button>
       </div>
-      
       <form id="login" class="input-group">
         <input type="email" id="emailLogin" class="input-field" placeholder="Email">
-        <input type="password" id="passwordLogin" class="input-field" placeholder="Enter Password" >
+        <input type="password" id="passwordLogin" class="input-field" placeholder="Enter Password">
         <input type="checkbox" class="chech-box"><span>Remember Password</span>
         <button type="button" onclick="SignIn()" class="submit-btn">Login</button>
       </form>
-
       <form id="signUp" class="input-group">
         <input type="text" id="name" class="input-field" name="name" placeholder="Name"><br>
         <input type="email" id="email" class="input-field" name="email" placeholder="Email"><br>
@@ -46,19 +40,14 @@
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select><br>
-      <button type="button" onclick="ThemTK()" class="submit-btn">Sign Up</button>
+        <button type="button" onclick="ThemTK()" class="submit-btn">Sign Up</button>
       </form>
-
-
     </div>
   </div>
-
-
   <script>
     var x = document.getElementById('login');
     var y = document.getElementById('signUp');
     var z = document.getElementById('btn');
-
     function signUp() {
       x.style.left = '-400px';
       y.style.left = '50px';
@@ -70,14 +59,10 @@
       z.style.left = '0';
     }
   </script>
-
   <!-- AXIOS -->
   <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-
   <script src="../model/SignUp.js"></script>
   <script src="../controller/login.js"></script>
- 
-
 </body>
 
 </html>

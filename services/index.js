@@ -62,6 +62,7 @@ const showUserInfo = () => {
             window.location.href = DOMAIN_LOGIN;
         }
     })
+    // khi người dùng nhấn vào đăng xuất 
     document.querySelector('.header__user+.dropdown .dropdown-item').addEventListener('click', () => {
         localStorage.removeItem(user);
         localStorage.removeItem(cartItems);
@@ -246,6 +247,7 @@ const buyProductClick = (id, image, name, price) => {
     // nếu người dùng chưa đăng nhập thì chuyển trang đăng nhập
     if (!isLogin()) {
         window.location.href = DOMAIN_LOGIN;
+        return;
     }
     // chuẩn bị dữ liệu của người dùng
     let pro = new product();
@@ -385,7 +387,7 @@ document.querySelector('#cart-dailog .cart-dailog__buttons .btn-danger').addEven
 })
 /* gọi hàm khi load page 
 -------------------------------------------------- */
-// localStorage.setItem(user, JSON.stringify("Ngân Hà"));
+localStorage.setItem(user, JSON.stringify("Ngân Hà"));
 loadAllProduct();
 getAllCatelory();
 updateCartDailog();

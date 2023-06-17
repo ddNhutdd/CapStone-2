@@ -4,7 +4,6 @@
 @import './Helper/minxin';
 //Base
 @import './Base/_reset.scss';
-
 //components
 @import './Components/_product_card';
 //layouts
@@ -14,10 +13,9 @@
 @import './Layouts/_footer.scss';
 @import './Layouts/signup';
 @import './Layouts/carts';
+@import './Layouts/_cart-dialog.scss';
 //Pages
 @import './Pages/_product-detail.scss';
-@import './Pages/_index.scss';
 //Theme
-
 //base responsive
 @import './Base/_responsive.scss';
