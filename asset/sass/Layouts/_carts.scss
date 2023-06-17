@@ -1,3 +1,35 @@
 .title p{
     font-size: $fs-32-cn;
 }
+.user-info{
+    text-align: center;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cart-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .cart-image {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+  }
+  
+  .cart-name {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+  
+  .cart-price {
+    font-size: 50px;
+    margin-left: 10px;
+
+  }
