@@ -224,6 +224,69 @@ footer {
 .title p {
   font-size: 32px; }
 
+
+.user-info {
+  text-align: center;
+}
+
+.product-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cart-image {
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+}
+
+.cart-name {
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.cart-price {
+  font-size: 50px;
+  margin-left: 10px;
+}
+
+.detail {
+  padding-top: 50px;
+}
+.detail img {
+  object-fit: cover;
+  background-color: rgba(194, 194, 194, 0.2);
+}
+.detail h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: green;
+}
+.detail .detail__size-item {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.9);
+}
+.detail .detail__price {
+  font-size: 32px;
+  font-weight: 700;
+  color: red;
+}
+.detail .detail__subtract,
+.detail .detail__add {
+  width: 38px;
+}
+
 .cart-dailog {
   position: fixed;
   z-index: 99;
