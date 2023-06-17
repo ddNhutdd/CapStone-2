@@ -17,12 +17,21 @@ function ThemTK() {
     }).then(function (result) {
         console.log(result);
         alert("Đăng kí tài khoản thành công")
+        // Lưu thông tin người dùng vào localStorage
+        localStorage.setItem('user', JSON.stringify(result.data));
         window.location.href = 'carts.html';
     }).catch(function (error) {
         console.log(error);
         alert("Email đã được sử dụng")
 
     });
+
+    // Nếu thông tin người dùng tồn tại trong localStorage, in ra tên đầy đủ của người dùng.
+    const userNameEl = document.querySelector('.user-name');
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+        userNameEl.innerHTML = user.name;
+    }
 
 }
 function SignIn() {
@@ -39,14 +48,32 @@ function SignIn() {
         data: tkKhachHang
     }).then(function (result) {
         console.log(result);
-        alert("Đăng nhập thành công")
+        alert("Đăng nhập thành công");
+        // Lưu thông tin người dùng vào localStorage
+        localStorage.setItem('user', JSON.stringify(result.data));
         window.location.href = 'carts.html';
     }).catch(function (error) {
         console.log(error);
-        alert("Đăng nhập thất bại")
+        alert("Đăng nhập thất bại");
     });
 
+    // Nếu thông tin người dùng tồn tại trong localStorage, in ra tên đầy đủ của người dùng.
+    const userNameEl = document.querySelector('.user-name');
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+        userNameEl.innerHTML = user.name;
+    }
+
+
 }
+
+
+// const logoutBtn = document.querySelector('.logout-btn');
+// logoutBtn.addEventListener('click', () => {
+//     localStorage.removeItem('user');
+//     window.location.href = 'carts.html';
+// });
+
 
 
 
