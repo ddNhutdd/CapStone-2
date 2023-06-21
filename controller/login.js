@@ -18,7 +18,7 @@ function ThemTK() {
         // console.log(result);
         alert("Đăng kí tài khoản thành công")
         // Lưu thông tin người dùng vào localStorage
-        localStorage.setItem('user', name);
+        localStorage.setItem('user', JSON.stringify(name));
         window.location.href = 'carts.html';
     }).catch(function (error) {
         // console.log(error);
@@ -26,19 +26,13 @@ function ThemTK() {
 
     });
 
-    // Nếu thông tin người dùng tồn tại trong localStorage, in ra tên đầy đủ của người dùng.
-    const userNameEl = document.querySelector('.user-name');
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user) {
-        userNameEl.innerHTML = user.name;
-    }
-
 }
+
 function SignIn() {
     const email = document.getElementById("emailLogin").value;
     const password = document.getElementById("passwordLogin").value;
 
-    var tkKhachHang = new Login(email, password)
+    var tkKhachHang = new Login(email, password);
 
     axios({
         method: 'post',
@@ -55,22 +49,8 @@ function SignIn() {
         alert("Đăng nhập thất bại");
     });
 
-    // Nếu thông tin người dùng tồn tại trong localStorage, in ra tên đầy đủ của người dùng.
-    const userNameEl = document.querySelector('.user-name');
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user) {
-        userNameEl.innerHTML = user.name;
-    }
-
 
 }
-
-
-// const logoutBtn = document.querySelector('.logout-btn');
-// logoutBtn.addEventListener('click', () => {
-//     localStorage.removeItem('user');
-//     window.location.href = 'carts.html';
-// });
 
 
 

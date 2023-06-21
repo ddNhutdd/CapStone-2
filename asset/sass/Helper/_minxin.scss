@@ -9,6 +9,11 @@
     font-size: $fs;
     color: $color;
 }
+@mixin buttonOfCarts($pd, $color, $bg) {
+    padding: $pd;
+    color: $color;
+    background: $bg;
+}
 
 @mixin MediaQuery($type) {
     @if $type ==$xs {

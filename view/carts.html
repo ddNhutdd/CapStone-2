@@ -27,38 +27,80 @@
 </head>
 
 <body>
-    <header>
-        <div class="user-info">
-            <span class="user-name"></span>
-            <a href="#" class="logout-btn">Đăng xuất</a>
-          </div>
-    </header>
 
+    <header>
+        <div class="header__botNav navbar navbar-light bg-light pb-4">
+            <div class="container flex-row-reverse justify-content-start">
+                <div class="header__user ml-3 p-1">
+                    <i class="fa-solid fa-user mr-2"></i>
+                    <span id="nameUser"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
     <div class="title container pt-5">
-        <p class="text-center">GIỎ HÀNG</p>
+        <p class="text-center">YOUR CARTS</p>
         <hr>
     </div>
-    <div class="card-body">
-        <table class="table  table-hover myTable">
+
+
+    <section class="card-body container">
+        <table class="table table-hover myTable">
             <thead class="text-dark ">
                 <tr>
-                    <th>id</th>
-                    <th>img</th>
-                    <th>name</th>
-                    <th>price</th>
-                    <th>quantity</th>
-                    <th>total</th>
-                    <th>action</th>
+                    <td>IMG</td>
+                    <td>NAME PRODUCT</td>
+                    <td>PRICE</th>
+                    <td>QUANTITY</td>
+                    <td>TOTAL</td>
+                    <td>DELETE</td>
                 </tr>
             </thead>
-            <tbody id="tableDanhSach">
-            </tbody>
+
+            <tbody class="cart-items-container"></tbody>
+
+
         </table>
-    </div>
+    </section>
 
 
-    <div class="cart-items-container"></div>
-    <div class="total-container">Total: $<span class="total-amount"></span></div>
+    <section id="cart-bottom" class="container">
+        <div class="row">
+            <div class="cupon col-lg-6 col-ml-6 col-12 mb-4">
+                <div>
+                    <h5>COUPON</h5>
+                    <p>Enter your coupon if you have</p>
+                    <input type="text" placeholder="Coupon code">
+                    <button>APPLY COUPON</button>
+                </div>
+            </div>
+            <div class="total col-lg-6 col-ml-6 col-12">
+                <div class="div-total">
+                    <h5>CART TOTAL</h5>
+                    <div class="d-flex justify-content-between">
+                        <h6>Subtotal</h6>
+                        <div class="total-container">Total: $<span id="total-sub"></span></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h6>Shipping</h6>
+                        <div class="total-container">Free</div>
+                    </div>
+                    <hr class="second-hr">
+                    <div class="d-flex justify-content-between">
+                        <h6>Total</h6>
+                        <div class="total-container">Total: $<span id="total-amount"></span></div>
+                    </div>
+
+                    <button class="checkout-btn ml-auto">PROCEED TO CHECKOUT</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- <div class="cart-items-container"></div> -->
 
 
     <footer>
@@ -103,7 +145,7 @@
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
         crossorigin="anonymous"></script>
     
-    
+    <!-- JS -->
     <script src="../controller/carts2.js"></script>
     
 </body>

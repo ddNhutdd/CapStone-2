@@ -5,31 +5,100 @@
     text-align: center;
 }
 
-.product-container {
-    display: flex;
-    flex-direction: column;
+.card-body{
+  table{
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    thead{
+      font-weight: 700;
+      td{
+        margin-left: $m-20-cn;
+        background: $bg;
+        color: $black-1-cn;
+        border: none;
+      }
+    }
+    td{
+      border: 1px solid rgb(202, 196, 196);
+      text-align: center;
+    }
+    td:nth-child(1){
+      width: 170px;
+    }
+    td:nth-child(2){
+      width: 300px;
+      
+    }
+    td:nth-child(3){
+      width: 150px;
+    }
+    td:nth-child(4){
+      width: 180px;
+    }
+    td:nth-child(5){
+      width: 180px;
+    }
   }
-  
-  .cart-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .cart-image {
-    width: 150px;
-    height: 150px;
-    margin-right: 20px;
-  }
-  
-  .cart-name {
-    font-size: 18px;
-    margin-left: 10px;
-  }
-  
-  .cart-price {
-    font-size: 50px;
-    margin-left: 10px;
 
+}
+.minus,.plus{
+  width: 30px;
+  height: 30px;
+  padding: 2px 0;
+}
+
+#cart-bottom{
+  .cupon{
+    div{
+      border: 1px solid rgb(202, 196, 196);
+    }
+    h5{
+      background: $bg-color;
+      color: $black-1-cn;
+      border: none;
+      padding: 6px 12px;
+      font-weight: 700;
+    }
+    p,input{
+      padding: 0 12px;
+      
+    }
+    input{
+      height: 44px;
+      margin: 0 0 20px 12px;
+    }
+    button{
+      @include buttonOfCarts(5px 4px, $white, $black-1-cn)
+    }
   }
+  .total{
+    .div-total{
+      border: 1px solid rgb(202, 196, 196);
+    }
+    h5{
+      background: $bg-color;
+      color: $black-1-cn;
+      border: none;
+      padding: 6px 12px;
+      font-weight: 700;
+    }
+    div>div{
+      padding: 0 12px;
+    }
+  }
+  .second-hr{
+    background: $black-2-cn;
+    width: 100%;
+    height: 1px;
+  }
+  .checkout-btn{
+    margin: 5px 12px 20px 0;
+    display: flex;
+    justify-content: flex-end;
+    @include buttonOfCarts(5px 4px, $white, $black-1-cn)
+  }
+}
+
+
+
