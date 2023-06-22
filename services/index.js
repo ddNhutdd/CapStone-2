@@ -280,7 +280,7 @@ const buyProductClick = (id, image, name, price) => {
  * @id {string} id của sản phẩm mà người dùng click vào
  */
 const showProductDetail = (id) => {
-    window.location.href = DOMAIN_PRODUCT_DETAIL + '?detail=' + id;
+    window.location.href = DOMAIN_PRODUCT_DETAIL + id;
 }
 /**
  * hàm hiển thị phần tử lên giao diện
