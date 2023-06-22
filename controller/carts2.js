@@ -29,8 +29,8 @@ function renderCartItems() {
     total += item.price * item.quantity;
   });
   cartItemsContainer.innerHTML = renderCarts;
-  cartTotal_1.innerHTML = total;
-  cartTotal_2.innerHTML = total;
+  cartTotal_1.innerHTML = total.toLocaleString();
+  cartTotal_2.innerHTML = total.toLocaleString();
 
   // Lưu lại giá trị giỏ hàng vào localStorage
   localStorage.setItem('cartItems', JSON.stringify(cartItems));
