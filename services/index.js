@@ -251,6 +251,7 @@ const buyProductClick = (id, image, name, price) => {
     }
     // chuẩn bị dữ liệu của người dùng
     let pro = new product();
+    id = +id;
     pro = { id, image, name, price }
     pro.quantity = 1
     // xử lí giỏ hàng và lưu vào local storage
