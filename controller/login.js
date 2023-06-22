@@ -58,7 +58,6 @@ function SignIn() {
                 phone: phone,
             };
             localStorage.setItem('user', JSON.stringify(obJect.name));
-           
         })
         .catch( (error) => {
             // console.log(error);

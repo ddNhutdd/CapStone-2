@@ -34,16 +34,10 @@ function renderCartItems() {
   cartItemsContainer.innerHTML = renderCarts;
   cartTotal_1.innerHTML = total;
   cartTotal_2.innerHTML = total;
-}
 
+  // Lưu lại giá trị giỏ hàng vào localStorage
+  localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-
-
-
-// Thay đổi giá trị số lượng sản phẩm và cập nhật lại danh sách trên trang
-function updateCartItemQuantity(item, quantity) {
-  item.quantity = quantity;
-  renderCartItems();
 }
 
 // Lắng nghe sự kiện click của nút tăng/giảm số lượng sản phẩm
