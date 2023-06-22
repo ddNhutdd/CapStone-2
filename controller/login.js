@@ -39,10 +39,30 @@ function SignIn() {
         url: 'https://shop.cyberlearn.vn/api/Users/signin',
         data: tkKhachHang
     }).then(function (result) {
-        console.log(result);
         alert("Đăng nhập thành công");
         // Lưu thông tin dang nhap vào localStorage
-        localStorage.setItem('user', JSON.stringify(result.data));
+        axios.post('https://shop.cyberlearn.vn/api/Users/getProfile',{
+        }, {
+            headers:{
+                Authorization: `Bearer ${result.data.content.accessToken}`,
+            },
+        })
+        .then((response) => {
+            // console.log(response);
+            const {avatar, email, gender, name, phone,} = response.data.content
+            const obJect = {
+                avatar: avatar,
+                email: email,
+                gender: gender,
+                name: name,
+                phone: phone,
+            };
+            localStorage.setItem('user', JSON.stringify(obJect.name));
+           
+        })
+        .catch( (error) => {
+            // console.log(error);
+        });
         window.location.href = 'carts.html';
     }).catch(function (error) {
         // console.log(error);
