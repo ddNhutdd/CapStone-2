@@ -274,6 +274,7 @@ const buyProductClick = (id, image, name, price) => {
  */
 const showProductDetail = (id) => {
     window.location.href = DOMAIN_PRODUCT_DETAIL + '?detail=' + id;
+    console.log(DOMAIN_PRODUCT_DETAIL)
 }
 /**
  * hàm hiển thị phần tử lên giao diện
