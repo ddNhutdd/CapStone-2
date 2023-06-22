@@ -14,7 +14,7 @@ function ThemTK() {
         alert("Đăng kí tài khoản thành công")
         // Lưu thông tin người dùng vào localStorage
         localStorage.setItem('user', JSON.stringify(name));
-        window.location.href = 'carts.html';
+        window.location.href = '../index.html';
     }).catch(function (error) {
         alert("Email đã được sử dụng")
     });
