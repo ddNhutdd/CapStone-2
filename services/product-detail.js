@@ -294,7 +294,7 @@ const hideElement = (cssSelectorString) => {
     element.classList.add('d-none')
 }
 /**
- * hàm load dữ liệu lên phần list product của trang index
+ * hàm load dữ liệu lên phần list product của trang product-detail
  */
 const loadAllProduct = () => {
     try {
@@ -392,7 +392,7 @@ const loadDetaiProduct = () => {
                         if (iProduct == -1) {
                             cartDetailJ.push(pro)
                         } else {
-                            cartDetailJ[iProduct].quantity += 1
+                            cartDetailJ[iProduct].quantity += pro.quantity
                         }
                         localStorage.setItem(cartItems, JSON.stringify(cartDetailJ));
                     }
